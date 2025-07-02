@@ -13,9 +13,15 @@
         /** @param {{ id: number }} u */ u => u.id === id
     );
 
-    let name = '';
-    let email = '';
-    let phone = '';
+    // Handle if not found
+    if (!userData) {
+        alert('User not found');
+        goto('/login');
+    }
+
+    let name = userData.name;
+    let email = userData.email;
+    let phone = userData.phone;
     let isEditing = false;
 </script>
 
