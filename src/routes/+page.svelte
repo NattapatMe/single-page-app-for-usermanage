@@ -1,5 +1,6 @@
 <script>
     import { auth } from '$lib/index';
+    import { goto } from '$app/navigation';
 
     let username = '';
     let password = '';
@@ -12,6 +13,14 @@
         } else {
             alert('Invalid credentials');
         }
+    }
+
+    function logout() {
+        auth.set({ loggedIn: false });
+    }
+
+    function goToUsers() {
+        goto('/users');
     }
 </script>
 
