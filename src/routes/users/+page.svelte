@@ -38,10 +38,10 @@
 
     {#if showForm}
         <div class="mb-6 space-y-2 max-w-md">
-            <input placeholder="Name" class="w-full p-2 border rounded" />
-            <input placeholder="Email" class="w-full p-2 border rounded" />
-            <input placeholder="Phone" class="w-full p-2 border rounded" />
-            <button class="w-full bg-green-500 text-white p-2 rounded">Save User</button>
+            <input bind:value={name} placeholder="Name" class="w-full p-2 border rounded" />
+            <input bind:value={email} placeholder="Email" class="w-full p-2 border rounded" />
+            <input bind:value={phone} placeholder="Phone" class="w-full p-2 border rounded" />
+            <button on:click={addUser} class="w-full bg-green-500 text-white p-2 rounded">Save User</button>
         </div>
     {/if}
 
