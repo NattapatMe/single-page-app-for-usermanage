@@ -1,8 +1,28 @@
 <script>
+    import { users } from '$lib/index';
+    import { goto } from '$app/navigation';
+
     let name = '';
     let email = '';
     let phone = '';
     let showForm = false;
+
+    function addUser() {
+        const newUser = {
+            id: Date.now(),
+            name,
+            email,
+            phone
+    };
+
+    users.update(u => [newUser, ...u]);
+
+    // Reset form
+    name = '';
+    email = '';
+    phone = '';
+    showForm = false;
+  }
 </script>
 
 <div class="min-h-screen bg-gray-50 p-6">
