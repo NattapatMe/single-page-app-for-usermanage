@@ -64,18 +64,19 @@
         </div>
     {/if}
 
-  <!-- Placeholder for list -->
     <ul class="space-y-2">
-        <li class="flex justify-between items-center bg-white shadow p-3 rounded">
-        <span>User Name</span>
-        <div class="space-x-2">
-            <button class="bg-blue-400 text-white px-3 py-1 rounded">View</button>
-            <button class="bg-red-400 text-white px-3 py-1 rounded">Delete</button>
-        </div>
-        </li>
+        {#each $users as user}
+            <li class="flex justify-between items-center bg-white shadow p-3 rounded">
+                <span>{user.name}</span>
+                <div class="space-x-2">
+                    <button on:click={() => viewUser(user.id)} class="bg-blue-400 text-white px-3 py-1 rounded">View</button>
+                    <button on:click={() => confirmDelete(user.id)} class="bg-red-400 text-white px-3 py-1 rounded">Delete</button>
+                </div>
+            </li>
+        {/each}
     </ul>
 
-    <button class="mt-6 bg-gray-500 text-white px-4 py-2 rounded">
+    <button on:click={goBack} class="mt-6 bg-gray-500 text-white px-4 py-2 rounded">
         Back
     </button>
 </div>
