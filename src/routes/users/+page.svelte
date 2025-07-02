@@ -23,6 +23,25 @@
     phone = '';
     showForm = false;
   }
+
+    /** @param {*} id */
+    function confirmDelete(id) {
+        if (confirm('Are you sure you want to delete this user?')) {
+            users.update(u =>
+            u.filter(
+            /** @param {{ id: number }} user */ user => user.id !== id
+            )
+        );
+        }
+    }
+    /** @param {*} id */
+    function viewUser(id) {
+        goto(`/users/${id}`);
+    }
+
+    function goBack() {
+      goto('/');
+    }
 </script>
 
 <div class="min-h-screen bg-gray-50 p-6">
