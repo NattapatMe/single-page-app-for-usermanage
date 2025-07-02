@@ -1,4 +1,18 @@
 <script>
+    import { users } from '$lib/index';
+    import { page } from '$app/stores';
+    import { goto } from '$app/navigation';
+    import { get } from 'svelte/store';
+
+    // Get the user ID from the URL
+    const id = Number($page.params.id);
+
+    // Find the original user with type hint on parameter
+    const userList = get(users);
+    const userData = userList.find(
+        /** @param {{ id: number }} u */ u => u.id === id
+    );
+
     let name = '';
     let email = '';
     let phone = '';
