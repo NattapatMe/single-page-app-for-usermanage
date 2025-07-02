@@ -4,6 +4,8 @@
     let username = '';
     let password = '';
 
+    $: isLoggedIn = $auth.loggedIn;
+
     function login() {
         if (username === 'admin' && password === 'password') {
             auth.set({ loggedIn: true });
