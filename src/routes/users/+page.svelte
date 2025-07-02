@@ -51,10 +51,6 @@
         {showForm ? 'Cancel' : 'Add User'}
     </button>
 
-    <button class="mb-4 bg-blue-500 text-white px-4 py-2 rounded">
-        Add User
-    </button>
-
     {#if showForm}
         <div class="mb-6 space-y-2 max-w-md">
             <input bind:value={name} placeholder="Name" class="w-full p-2 border rounded" />
