@@ -1,6 +1,14 @@
 <script>
-  let username = '';
-  let password = '';
+    let username = '';
+    let password = '';
+
+    function login() {
+        if (username === 'admin' && password === 'password') {
+            alert('Login successful!');
+        } else {
+            alert('Invalid credentials');
+        }
+    }
 </script>
 
 <div class="flex flex-col items-center justify-start pt-10">
