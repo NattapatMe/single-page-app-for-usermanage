@@ -1,10 +1,12 @@
 <script>
+    import { auth } from '$lib/index';
+
     let username = '';
     let password = '';
 
     function login() {
         if (username === 'admin' && password === 'password') {
-            alert('Login successful!');
+            auth.set({ loggedIn: true });
         } else {
             alert('Invalid credentials');
         }
