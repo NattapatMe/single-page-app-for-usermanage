@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { users } from '$lib';
     import { goto } from '$app/navigation';
 
@@ -24,18 +24,16 @@
     showForm = false;
   }
 
-    /** @param {*} id */
-    function confirmDelete(id) {
+    function confirmDelete(id: number) {
         if (confirm('Are you sure you want to delete this user?')) {
             users.update(u =>
-            u.filter(
-            /** @param {{ id: number }} user */ user => user.id !== id
+            u.filter(user => user.id !== id
             )
         );
         }
     }
-    /** @param {*} id */
-    function viewUser(id) {
+
+    function viewUser(id:number) {
         goto(`/users/${id}`);
     }
 
