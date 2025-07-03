@@ -8,8 +8,11 @@
     let phone = '';
     let showForm = false;
 
+    loadUser();
+
     async function loadUser(){
         const _users = await service.getuser();
+        console.log(_users)
         users.set([...$users, ..._users]);
     }
 

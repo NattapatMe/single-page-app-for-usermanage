@@ -1,5 +1,5 @@
 function getuser (){
-    return fetch('https://jsonplaceholder.typicode.com/users/1')
+    return fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
 };
 
