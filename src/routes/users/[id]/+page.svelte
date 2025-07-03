@@ -11,8 +11,6 @@
     const userList = get(users);
     const userData = userList.find(u => u.id === id
     );
-    
-// /** @param {{ id: number }} u */
 
     // Handle if not found
     if (!userData) {
