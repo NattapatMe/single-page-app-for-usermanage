@@ -27,6 +27,11 @@
     let isEditing = false;
 
     function save() {
+        if(!name.trim() || !email.trim() || !phone.trim()){
+            alert('Please fill in every field');
+            return;
+        }
+
         users.update(list =>
             list.map(
             user => user.id === id ? { ...user, name, email, phone } : user
