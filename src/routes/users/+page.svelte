@@ -1,11 +1,17 @@
 <script lang="ts">
     import { users } from '$lib';
     import { goto } from '$app/navigation';
+  import service from '$lib/service';
 
     let name = '';
     let email = '';
     let phone = '';
     let showForm = false;
+
+    async function loadUser(){
+        const _users = await service.getuser();
+        users.set([...$users, ..._users]);
+    }
 
     function addUser() {
         const newUser = {
