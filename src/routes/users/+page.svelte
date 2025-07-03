@@ -1,5 +1,5 @@
 <script>
-    import { users } from '$lib/index';
+    import { users } from '$lib';
     import { goto } from '$app/navigation';
 
     let name = '';

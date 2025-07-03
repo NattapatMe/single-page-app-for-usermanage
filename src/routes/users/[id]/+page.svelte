@@ -1,5 +1,5 @@
-<script>
-    import { users } from '$lib/index';
+<script lang="ts">
+    import { users } from '$lib';
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
     import { get } from 'svelte/store';
@@ -17,17 +17,19 @@
     if (!userData) {
         alert('User not found');
         goto('/login');
+        throw new Error('redirect'); 
     }
 
-    let name = userData.name;
-    let email = userData.email;
-    let phone = userData.phone;
+    let {name, email, phone} = userData;
+
+    // let name = userData.name;
+    // let email = userData.email;
+    // let phone = userData.phone;
     let isEditing = false;
 
     function save() {
         users.update(list =>
             list.map(
-            /** @param {{ id: number, name: string, email: string, phone: string }} user */
             user => user.id === id ? { ...user, name, email, phone } : user
             )
         );
@@ -35,9 +37,9 @@
     }
 
     function cancel() {
-        name = userData.name;
-        email = userData.email;
-        phone = userData.phone;
+        name = userData!.name;
+        email = userData!.email;
+        phone = userData!.phone;
         isEditing = false;
     }
 

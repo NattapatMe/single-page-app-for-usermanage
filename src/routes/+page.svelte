@@ -1,5 +1,5 @@
 <script>
-    import { auth } from '$lib/index';
+    import { auth } from '$lib';
     import { goto } from '$app/navigation';
 
     let username = '';

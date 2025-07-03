@@ -8,9 +8,17 @@ auth.subscribe(value => {
   localStorage.setItem('auth', JSON.stringify(value));
 });
 
+interface User{
+  email: string;
+  name: string;
+  phone: string;
+  id: number;
+}
+
+
 // --- User Store ---
 const storedUsers = localStorage.getItem('users');
-const initialUsers = storedUsers ? JSON.parse(storedUsers) : [];
+const initialUsers: User[] = storedUsers ? JSON.parse(storedUsers) : [];
 
 export const users = writable(initialUsers);
 users.subscribe(value => {
