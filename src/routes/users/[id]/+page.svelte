@@ -9,9 +9,10 @@
 
     // Find the original user with type hint on parameter
     const userList = get(users);
-    const userData = userList.find(
-        /** @param {{ id: number }} u */ u => u.id === id
+    const userData = userList.find(u => u.id === id
     );
+    
+// /** @param {{ id: number }} u */
 
     // Handle if not found
     if (!userData) {
